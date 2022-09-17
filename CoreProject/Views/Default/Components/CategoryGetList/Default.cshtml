@@ -1,0 +1,37 @@
+﻿
+@*@model IEnumerable<WebApplication1.Data.Models.Category>*@
+
+<style>
+    .catalign {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<div>
+    <button class="btn btn-primary" style="height:20%; width:20%" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <H3>CATEGORIES</H3>
+    </button>
+
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <div>
+                @foreach (var item in Model)
+                {
+                    <a href="/Default/CategoryDetails/@item.CategoryID">
+                        <h3>@item.CategoryName</h3>
+                        <br />
+                    </a>
+
+                }
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+

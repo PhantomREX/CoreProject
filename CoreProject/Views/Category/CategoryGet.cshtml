@@ -1,0 +1,28 @@
+﻿@model CoreProject.Data.Models.Category
+
+@{
+    ViewData["Title"] = "CategoryGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category Update</h1>
+
+
+@using (Html.BeginForm("CategoryUpdate", "Category", FormMethod.Post))
+{
+    @Html.LabelFor(i=>i.CategoryID)
+    @Html.TextBoxFor(i=>i.CategoryID, new{@class = "form-control"})
+    <br/>
+    @Html.LabelFor(i=>i.CategoryName)
+    @Html.TextBoxFor(i=>i.CategoryName, new{@class = "form-control"})
+    @Html.ValidationMessageFor(i=>i.CategoryName,"" ,new {@style ="color:red"})
+    <br />
+    <br />
+    @Html.LabelFor(i=>i.CategoryDescription)
+    @Html.TextBoxFor(i=>i.CategoryDescription, new{@class = "form-control"})
+    <br />
+    <br />
+    <button class="btn btn-primary">Update</button>
+
+}
+

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CoreProject.Data.Models.Item>
+
+
+<div >
+    <section>
+        @foreach (var item in Model)
+        {
+            string name = item.Name;
+            int stock = item.Stock;
+            int price = Convert.ToInt32(item.Price);
+            <div>
+                <div class="col-md-4" style="margin-top:10%">
+                <div>
+                    <a href="/Item/GetItem/@item.ItemId">
+                        <img style="width:200px;height:150px"
+                         alt="" src="@item.ImageURL" />
+                    </a>
+                </div>
+                <div>
+                    <div>
+                        <h2>@name</h2>
+                    </div>
+                    <div>
+                        <h4>
+                            <b>
+                                @price ₺
+                            </b>
+                        </h4>
+                    </div>
+                    <div>
+                        @if (stock == 0)
+                        {
+
+                            <h4> Out of stock</h4>
+                        }
+                        else
+                        {
+                            <h4>@stock pieces left</h4>
+                        }
+                    </div>
+                </div>
+                <br />
+                <br />
+            </div>
+
+            </div>
+            
+        }
+
+
+    </section>
+</div>
+<div>
+</div>
+
+

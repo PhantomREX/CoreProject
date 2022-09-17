@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Statistics</h1>
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <!-- Custom Theme files -->
+    <link href="~/web2/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="~/web2/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/web2/css/font-awesome.css">
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Metro Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--webfont-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <link href="~/web2/css/jqvmap.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+    <script src="~/web2/js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+    <script src="~/web2/js/main.js"></script> <!-- Resource jQuery -->
+    <!-- chart -->
+    <script src="~/web2/js/Chart1.js"></script>
+    <!-- //chart -->
+</head>
+<body>
+
+    <div class="new-users" style="background-color:#2ecc71">
+
+        <div class="icon-text">
+            <h3>@ViewBag.totalitemVB </h3>
+            <h4>Total Item</h4>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:goldenrod">
+                <div class="icon-text">
+                    <h3>@ViewBag.allProductNumberVB</h3>
+                    <h4>The Total Number of All Products</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:indianred">
+
+                <div class="icon-text">
+                    <h3>1</h3>
+                    <p>Critic Stock</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div>
+                 <div class="orders" style="background-color:khaki">
+
+                <div class="icon-text">
+                    <h3>The Most Quantity Product</h3>
+                    <p>@ViewBag.mostItemsVB - <p>(Total @ViewBag.mostItemsQuantity Quantity)</p>
+                
+                   
+
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="visitors" style="background-color:moccasin">
+
+                <div class="icon-text">
+                    <h3>The Highest Priced Product</h3>
+                    <p>@ViewBag.mostExpensiveVB - <p>( @ViewBag.mostItemExpensiveVB ₺) per </p>
+                 
+
+                    
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+
+
+            <div class="total">
+
+                <div class="sales" style="background-color:cornflowerblue">
+                    <div class="icon-text">
+                        <h3>@ViewBag.totalCategoryVB</h3>
+                        <p>Total Category</p>
+                    </div>
+                    <div class="sales" style="background-color:deepskyblue">
+
+                        <div class="icon-text">
+                            <h3>@ViewBag.lightingItems2VB</h3>
+                            <p>Number of Lighting Product Types</p>
+                           @* // Kaç ÇEŞİT Aydınlatma ürünü var (toplam stok sayısı değil, toplam ürün çeşidi sayısı.)*@
+                        </div>
+                        <div class="icon-text">
+                            <h3>@ViewBag.totalStockLightingID</h3>
+                            <p>Number of Total Lighting Product </p>
+                           @* // Tüm Aydınlatma ürünlerinin toplam stok sayısı *@
+                        </div>
+
+
+
+                         <div class="icon-text">
+                            <h3>@ViewBag.decorItemsVB</h3>
+                            <p>Number of Decor Product Types</p>
+                            @* // Kaç ÇEŞİT Dekor ürünü var ()*@
+                        </div>
+                         <div class="icon-text">
+                            <h3>@ViewBag.totalStockDecorID</h3>
+                            <p>Number of Total Decor Product </p>
+                           @* // Tüm Dekor ürünlerinin toplam stok sayısı *@
+                        </div>
+
+
+
+                        <div class="icon-text">
+                            <h3>@ViewBag.tableItemsVB</h3>
+                            <p>Number of Table Product Types</p>
+                            @* // Kaç ÇEŞİT Masa ürünü var ()*@
+                        </div>
+                         <div class="icon-text">
+                            <h3>@ViewBag.totalStockTableID</h3>
+                            <p>Number of Total Table Product </p>
+                           @* // Tüm Masa ürünlerinin toplam stok sayısı *@
+                        </div>
+
+
+
+
+                        <div class="icon-text">
+                            <h3>@ViewBag.mirrorItemsVB</h3>
+                            <p>Number of Mirror Product Types</p>
+                            @* // Kaç ÇEŞİT Ayna ürünü var ()*@
+                        </div>
+                         <div class="icon-text">
+                            <h3>@ViewBag.totalStockMirrorID</h3>
+                            <p>Number of Total Mirror Product </p>
+                           @* // Tüm Ayna ürünlerinin toplam stok sayısı *@
+                        </div>
+
+
+
+                         <div class="icon-text">
+                            <h3>@ViewBag.chairItemsVB</h3>
+                            <p>Number of Chair Product Types</p>
+                            @* // Kaç ÇEŞİT Sandalye ürünü var ()*@
+                        </div>
+                         <div class="icon-text">
+                            <h3>@ViewBag.totalStockChairID</h3>
+                            <p>Number of Total Chair Product </p>
+                           @* // Tüm Sandalye ürünlerinin toplam stok sayısı *@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            @*
+            @{ var total = ViewBag.totalCategoryVB; }
+            @foreach (var item in collection)
+            {
+
+            }*@
+
+        </div>
+    </div>
+
+</body>
+</html>

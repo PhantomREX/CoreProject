@@ -1,0 +1,89 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<CoreProject.Data.Models.Item>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+
+
+    .critical-1 {
+        background-color: yellow;
+    }
+
+    .critical-2 {
+        background-color: orangered;
+    }
+
+    .solid {
+        background-color: papayawhip;
+    }
+
+</style>
+<h3>Item Pages</h3>
+
+<h3>Items</h3>
+
+<div class="table-warning"></div>
+<div class="table-danger"></div>
+<table class="table table-bordered">
+    <tr class="alert-info">
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Category Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        int criticalStock = item.Stock;
+        <tr class="solid">
+            <td>@item.ItemId</td>
+            <td>@item.Name</td>
+            <td> @item.Category.CategoryName  </td>
+            <td> @item.Price </td>
+
+
+            @if (criticalStock < 5)
+            {
+                @if (criticalStock < 1)
+                {
+                    <td class="critical-2">@item.Stock </td>
+                }
+                else
+                {
+                    <td class="critical-1">@item.Stock </td>
+                }
+            }
+            else
+            {
+                <td class="solid">@item.Stock </td>
+            }
+
+            <td><a href="/Item/DeleteItem/@item.ItemId" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Item/ItemGet/@item.ItemId" class="btn btn-success">Update</a></td>
+
+            <td><a href="/Item/ItemDetail/@item.ItemId" class="btn btn-info">Details</a></td>
+
+        </tr>
+    }
+</table>
+
+
+
+
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index",new{page}))
+
+
+
+
+<a href="/Item/AddItem/" class="btn btn-primary"> New Item</a>

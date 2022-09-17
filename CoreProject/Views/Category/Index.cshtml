@@ -1,0 +1,58 @@
+﻿@model List<CoreProject.Data.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Category List</h1>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<h3>Categories</h3>
+<br />
+
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Category Name :@Html.TextBox("param")
+        <input type="submit" value="Search"/>
+    </p>
+
+}
+
+
+
+
+<table class="table table-bordered">
+    <tr class="alert-info">
+        <th>ID</th>
+        <th>CATEGORY NAME</th>
+        <th>IS APPROVED</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.IsApprovedStatu</td>
+
+            <td><a href="/Category/CategoryDelete/@item.CategoryID" class="btn btn-danger">Delete</a></td>
+            <td><a href="/Category/CategoryGet/@item.CategoryID" class="btn btn-success">Update</a></td>
+       
+        
+        
+        </tr>
+
+
+    }
+</table>
+
+
+<a href="/Category/CategoryAdd/" class="btn btn-primary"> New Category</a>

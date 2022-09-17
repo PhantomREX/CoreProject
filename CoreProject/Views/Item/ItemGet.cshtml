@@ -1,0 +1,48 @@
+﻿@model CoreProject.Data.Models.Item
+@{
+    ViewData["Title"] = "ItemGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ItemGet</h1>
+@using (Html.BeginForm("ItemUpdate", "Item", FormMethod.Post))
+{
+    @Html.Label("Item ID")
+    @Html.TextBoxFor(i=>i.ItemId, new{@class = "form-control"})
+
+    @Html.Label("Item name")
+    @Html.TextBoxFor(i=>i.Name, new{@class = "form-control"})
+    @Html.ValidationMessageFor(i=>i.Name,"" ,new {@style ="color:red"})
+
+    <br />
+    <br />
+    @Html.Label("Stock")
+    @Html.TextBoxFor(i=>i.Stock, new{@class = "form-control"})
+    @Html.ValidationMessageFor(i=>i.Stock,"" ,new {@style ="color:red"})
+    <br />
+    <br />
+    @Html.Label("Price")
+    @Html.TextBoxFor(i=>i.Price, new{@class = "form-control"})
+    @Html.ValidationMessageFor(i=>i.Price,"" ,new {@style ="color:red"})
+    <br />
+    <br />
+    @Html.Label("ImageURL")
+    @Html.TextBoxFor(i=>i.ImageURL, new{@class = "form-control"})
+    <br />
+    <br />
+    @Html.Label("Category")
+   
+
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.v, new {@class="form-control"})
+
+    <br />
+    <br />
+    @Html.Label("Description")
+    @Html.TextAreaFor(i=>i.Description, new{@class = "form-control"})
+
+
+    <br />
+    <br />
+    <button class="btn btn-primary">SAVE</button>
+
+}
